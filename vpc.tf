@@ -11,7 +11,7 @@ resource "aws_vpc" "main" {
 }
 
 
-# Subnets
+# public Subnets
 resource "aws_subnet" "main-public-1" {
     vpc_id = "${aws_vpc.main.id}"
     cidr_block = "10.0.1.0/24"
@@ -34,7 +34,7 @@ resource "aws_subnet" "main-public-2" {
 }
 
 
-# Internet GW
+# Internet Gateway
 resource "aws_internet_gateway" "main-gw" {
     vpc_id = "${aws_vpc.main.id}"
 
@@ -43,7 +43,7 @@ resource "aws_internet_gateway" "main-gw" {
     }
 }
 
-# route tables
+# Route tables
 resource "aws_route_table" "main-public" {
     vpc_id = "${aws_vpc.main.id}"
     route {
@@ -56,7 +56,7 @@ resource "aws_route_table" "main-public" {
     }
 }
 
-# route associations public
+# Route associations public
 resource "aws_route_table_association" "main-public-1-a" {
     subnet_id = "${aws_subnet.main-public-1.id}"
     route_table_id = "${aws_route_table.main-public.id}"
