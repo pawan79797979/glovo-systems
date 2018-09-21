@@ -1,4 +1,4 @@
-ource "aws_launch_configuration" "glovo-launchconfig" {
+resource "aws_launch_configuration" "glovo-launchconfig" {
   name_prefix          = "glovo-launchconfig"
   image_id             = "${lookup(var.AMIS, var.AWS_REGION)}"
   instance_type        = "t2.micro"
