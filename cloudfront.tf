@@ -23,7 +23,7 @@ resource "aws_cloudfront_distribution" "elb_distribution" {
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "Some comment"
-  default_root_object = "index.html"
+  default_root_object = ""
 
  
   default_cache_behavior {
@@ -47,8 +47,8 @@ resource "aws_cloudfront_distribution" "elb_distribution" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["US", "CA", "GB", "DE", "JP"]
+      restriction_type = "none"
+      
     }
   }
 
