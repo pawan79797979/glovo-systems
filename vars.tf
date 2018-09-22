@@ -15,3 +15,13 @@ variable "AMIS" {
     us-west-1 = "ami-18726478"
   }
 }
+
+variable "CUSTOM_HEADER_NAME" {
+  default = "X-Glovo-Systems-Engineer-Candidate"
+}
+
+variable "CUSTOM_HEADER_VALUE" {
+  default = "1"
+}
+
+
